@@ -1,0 +1,8 @@
+<!--components/index/search /search.wxml-->
+<view class="index_top">
+     <view class="search">
+         搜索
+     </view>
+       
+</view>
+  

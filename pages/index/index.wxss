@@ -1,0 +1,33 @@
+.lunbo {
+  height: 340rpx;
+}
+.index_nav {
+  display: flex;
+  justify-content: space-around;
+  margin: 20rpx 0;
+}
+.one_pic {
+  width: 120rpx;
+  height: 120rpx;
+}
+.product_list {
+  padding: 20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 415.94827586rpx;
+}
+.product_item {
+  width: 33.3%;
+  float: left;
+}
+.product_item image {
+  display: block;
+}
+.product_list .product_item:nth-last-child(-n+4) {
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+.product_list .product_item:nth-last-child(-n+4) image {
+  height: 207.97413793rpx;
+}

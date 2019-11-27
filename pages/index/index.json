@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "search":"../../components/index/search/search"
+  },
+  "navigationBarBackgroundColor": "#eb4450",
+  "navigationBarTitleText": "黑马优购",
+  "navigationBarTextStyle": "white"
+}

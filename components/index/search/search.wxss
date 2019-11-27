@@ -1,0 +1,14 @@
+/* components/index/search /search.wxss */
+.index_top{
+    padding: 20rpx;
+    background-color: #eb4450;
+}
+.search{
+    height: 60rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    color: #999;
+    text-align: center;
+    line-height: 60rpx;
+}
