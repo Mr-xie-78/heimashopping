@@ -1,2 +1,29 @@
 <!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<search></search>
+<view class="content">
+    <scroll-view class="left" scroll-y="true" bindscrolltoupper="upper">
+        <view class="left_item {{num==index?'left_bg2':'left_bg1'}}" 
+        wx:for="{{categoryList}}" 
+        wx:key="index" 
+        data-index="{{index}}"
+        bindtap="handleClickcat">
+            {{item}}
+        </view>
+    </scroll-view>
+    <scroll-view class="rigth" scroll-y="true" bindscrolltoupper="upper">
+        <view wx:for="{{childrenlist}}" wx:key="cat_id">
+            <view class="right_title">
+                / {{item.cat_name}} /
+            </view>
+            <view class="right_pic">
+                <view class="text_pic" wx:for="{{item.children}}" wx:key="cat_id" wx:for-item="item1" wx:for-index="index1" >
+                  <image class="pic_item" src="{{item1.cat_icon}}" mode="widthFix"  />
+                   <text>
+                      {{item1.cat_name}} 
+                   </text>
+                </view>
+            </view>
+        </view>  
+    </scroll-view>
+</view>
+  

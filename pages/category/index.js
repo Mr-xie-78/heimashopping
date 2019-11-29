@@ -1,3 +1,5 @@
+import req from "../../until/axios"
+
 // pages/category/index.js
 Page({
 
@@ -5,16 +7,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    categoryList:[],
+    childrenlist:[],
+    num:0
   },
-
+  Cate:[],
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      // wx.request({
+      //   url: 'https://api.zbztb.cn/api/public/v1/categories',
+      //   success: (res) => {
+      //     this.setData({
+      //       categoryList:res.data.message
+      //     })
+      //   }
+      // });
+      req({
+        url: '/categories',
+      }).then(res=>{
+        this.Cate = res.data.message
+        this.setData({
+          categoryList:this.Cate.map(v=>v.cat_name),
+          childrenlist:this.Cate[0].children
+        })
+      })
   },
-
+  handleClickcat(e){
+    // 点击左侧导航触发
+    // console.log(e);
+    const {index} = e.currentTarget.dataset
+    this.setData({
+      childrenlist:this.Cate[index].children,
+      num:index
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

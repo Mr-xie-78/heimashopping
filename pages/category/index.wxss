@@ -1,1 +1,43 @@
-/* pages/category/index.wxss */
+.content {
+  display: flex;
+  height: calc(100vh - 100rpx);
+}
+.content .left {
+  width: 200rpx;
+}
+.content .left .left_item {
+  font-size: 28rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #666;
+}
+.content .rigth {
+  flex: 1;
+}
+.content .rigth .right_title {
+  text-align: center;
+  color: #666;
+}
+.content .rigth .right_pic {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+.content .rigth .right_pic .text_pic {
+  width: 33.3%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+.left_bg1 {
+  background-color: #eee;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
+}
+.left_bg2 {
+  background-color: #fff;
+  border-bottom: 1px solid #999;
+  border-left: 4rpx solid red;
+  color: red;
+}
