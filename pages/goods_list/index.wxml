@@ -1,2 +1,11 @@
 <!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<search></search>
+<view class="content">
+    <view class="goods_top">
+        <view  wx:for="{{selectList}}" wx:key="goods_id">
+            {{item.name}}
+        </view>
+    </view>
+      
+</view>
+  

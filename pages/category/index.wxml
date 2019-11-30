@@ -10,18 +10,18 @@
             {{item}}
         </view>
     </scroll-view>
-    <scroll-view class="rigth" scroll-y="true" bindscrolltoupper="upper">
+    <scroll-view class="rigth" scroll-top="{{scrollTop}}" scroll-y="true" bindscrolltoupper="upper">
         <view wx:for="{{childrenlist}}" wx:key="cat_id">
             <view class="right_title">
-                / {{item.cat_name}} /
+                /{{item.cat_name}}/
             </view>
             <view class="right_pic">
-                <view class="text_pic" wx:for="{{item.children}}" wx:key="cat_id" wx:for-item="item1" wx:for-index="index1" >
+                <navigator url="{{'/pages/goods_list/index?cid='+item1.cat_id}}" class="text_pic" wx:for="{{item.children}}" wx:key="cat_id" wx:for-item="item1" wx:for-index="index1" >
                   <image class="pic_item" src="{{item1.cat_icon}}" mode="widthFix"  />
                    <text>
                       {{item1.cat_name}} 
                    </text>
-                </view>
+                </navigator>
             </view>
         </view>  
     </scroll-view>

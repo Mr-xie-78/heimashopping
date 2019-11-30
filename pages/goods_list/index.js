@@ -1,3 +1,4 @@
+import axios from "../../until/axios"
 // pages/goods_list/index.js
 Page({
 
@@ -5,14 +6,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    goodsList:[],
+    pagenum:1,
+    pagesize:5,
+    selectList:[
+      {
+        name:"综合",
+        cid:1
+      },
+      {
+        name:"销量",
+        cid:2
+      },
+      {
+        name:"价格",
+        cid:3
+      },
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    axios({
+      url:'/goods/search',
+      data:{
+        pagenum:this.data.pagenum,
+        pagesize:this.data.pagesize,
+      }
+    }).then(res=>{
+      // console.log(res);
+      this.setData({
+        goodsList:res.data.message.goods
+      })
+    })
   },
 
   /**

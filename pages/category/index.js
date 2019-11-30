@@ -7,9 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    categoryList:[],
-    childrenlist:[],
-    num:0
+      categoryList:[],
+      childrenlist:[],
+      num:0,
+      scrollTop:0
   },
   Cate:[],
   /**
@@ -24,15 +25,33 @@ Page({
       //     })
       //   }
       // });
-      req({
-        url: '/categories',
-      }).then(res=>{
-        this.Cate = res.data.message
-        this.setData({
-          categoryList:this.Cate.map(v=>v.cat_name),
-          childrenlist:this.Cate[0].children
-        })
+      const cates = wx.getStorageSync("cates"); 
+      if(!cates){
+        this.getAllData()
+      }else{
+        if(Date.now() - cates.time > 20 * 1000){
+          this.getAllData()
+        }else{
+          this.Cate = cates.list
+          this.setData({
+            categoryList:this.Cate.map(v=>v.cat_name),
+            childrenlist:this.Cate[this.data.num].children
+          })
+        }
+      }
+  },
+  getAllData(){
+    req({
+      url: '/categories',
+    }).then(res=>{
+      this.Cate = res.data.message
+      this.setData({
+        categoryList:this.Cate.map(v=>v.cat_name),
+        childrenlist:this.Cate[this.data.num].children
       })
+       // 把数据存到缓存中 
+       wx.setStorageSync("cates", { list: this.Cates, time: Date.now() });
+    })
   },
   handleClickcat(e){
     // 点击左侧导航触发
@@ -40,7 +59,8 @@ Page({
     const {index} = e.currentTarget.dataset
     this.setData({
       childrenlist:this.Cate[index].children,
-      num:index
+      num:index,
+      scrollTop:0
     })
   },
   /**
