@@ -5,3 +5,38 @@
   line-height: 90rpx;
   border-bottom: 1px solid #bbb;
 }
+.good_list {
+  display: flex;
+}
+.good_list .goods_left {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.good_list .goods_left image {
+  width: 70%;
+}
+.good_list .goods_right {
+  flex: 3;
+  font-size: 28rpx;
+  color: #666;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.good_list .goods_name {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: nowrap;
+  white-space: normal !important;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.good_list .goods_price {
+  color: red;
+}
